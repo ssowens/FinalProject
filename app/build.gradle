@@ -47,5 +47,5 @@ dependencies {
     })
 
     testImplementation 'junit:junit:4.12'
-    compile project(':jokelib')
+    //compile project(':tellJokes')
 }

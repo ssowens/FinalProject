@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.ssowens.android.androidjokelibrary.AndroidJokeActivity;
 import com.ssowens.android.javajokeslib.JavaJokes;
 
 
@@ -17,6 +19,8 @@ import com.ssowens.android.javajokeslib.JavaJokes;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
+
+    public static final String EXTRA_JOKE = "joke";
 
     public MainActivityFragment() {
     }
@@ -30,7 +34,14 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 JavaJokes javaJokes = new JavaJokes();
-                Toast.makeText(v.getContext(), javaJokes.getJoke(), Toast.LENGTH_SHORT).show();
+                String myJoke = javaJokes.getJoke();
+                Toast.makeText(v.getContext(), myJoke, Toast.LENGTH_SHORT).show();
+
+                // Launch the Android Library Activity
+                Intent androidLibIntent = new Intent(getActivity(), AndroidJokeActivity.class);
+                androidLibIntent.putExtra(EXTRA_JOKE, myJoke);
+                startActivity(androidLibIntent);
+
             }
         });
 

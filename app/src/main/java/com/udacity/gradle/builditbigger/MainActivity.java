@@ -12,6 +12,9 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.ssowens.android.androidjokelibrary.AndroidJokeActivity;
 
+import butterknife.ButterKnife;
+import timber.log.Timber;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Bind the views
+        ButterKnife.bind(this);
+
+        // Set up Timber
+        Timber.plant(new Timber.DebugTree());
+
         // ADMOB App id
         MobileAds.initialize(this, "ca-app-pub-3983610797900419~4953833699");
         AdView adView = findViewById(R.id.adView);

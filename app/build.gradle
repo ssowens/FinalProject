@@ -44,13 +44,14 @@ dependencies {
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
+    implementation 'com.android.support:support-annotations:27.1.1'
 
     // Butterknife
     implementation "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
     annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
 
     // Timber
-    implementation 'com.jakewharton.timber:timber:4.5.1'
+    implementation 'com.jakewharton.timber:timber:4.7.0'
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -59,4 +60,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation project(':javaJokesLib')
     implementation project(':androidjokelibrary')
+
+    // Added for GCE library
+    implementation project(':backend')
+
+
 }

@@ -1,11 +1,14 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         // Set up Timber
         Timber.plant(new Timber.DebugTree());
 
-   //     new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
 
         // ADMOB App id
         MobileAds.initialize(this, "ca-app-pub-3983610797900419~4953833699");

@@ -62,5 +62,5 @@ dependencies {
     implementation project(':androidjokelibrary')
 
     // Added for GCE library
-    implementation project(':backend')
+   // implementation project(':backend')
 }

@@ -61,4 +61,8 @@ dependencies {
     implementation project(':androidjokelibrary')
     implementation project(':javaJokesLib')
 
+    // Testing-only dependencies
+    androidTestImplementation 'com.android.support:support-annotations:27.1.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
 }

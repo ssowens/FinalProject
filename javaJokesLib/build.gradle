@@ -32,9 +32,6 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
 
-    // Added for GCE library
-    //implementation project(':backend')
-
 }
 
 

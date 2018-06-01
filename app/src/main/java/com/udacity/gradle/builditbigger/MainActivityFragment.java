@@ -1,17 +1,16 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.ssowens.android.androidjokelibrary.AndroidJokeActivity;
 import com.ssowens.android.javajokeslib.JavaJokes;
 
 import butterknife.BindView;
@@ -53,13 +52,10 @@ public class MainActivityFragment extends Fragment {
     @OnClick(R.id.jokebutton)
     public void displayJoke() {
         Timber.d("displayJoke");
+
         JavaJokes javaJokes = new JavaJokes();
         String myJoke = javaJokes.getJoke();
-        Toast.makeText(getContext(), myJoke, Toast.LENGTH_SHORT).show();
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), myJoke));
 
-        // Launch the Android Library Activity
-        Intent androidLibIntent = new Intent(getActivity(), AndroidJokeActivity.class);
-        androidLibIntent.putExtra(EXTRA_JOKE, myJoke);
-        startActivity(androidLibIntent);
     }
 }

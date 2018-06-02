@@ -2,9 +2,9 @@ package com.udacity.gradle.builditbigger.AndroidTest.java;
 
 import android.support.test.runner.AndroidJUnit4;
 
+import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
 import com.udacity.gradle.builditbigger.backend.myApi.model.MyBean;
 
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,9 +13,7 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class AsyncTaskTest {
-
-    @Rule
+public class AsyncTaskTest extends EndpointsAsyncTask {
 
 
     @Test

@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.ssowens.android.javajokeslib.JavaJokes;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,11 +52,8 @@ public class MainActivityFragment extends Fragment {
     public void displayJoke() {
         Timber.d("displayJoke");
 
-        JavaJokes javaJokes = new JavaJokes();
-        String myJoke = javaJokes.getJoke();
-        String test = "Get the PAID version to see the jokes";
-        //new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), myJoke));
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), test));
+        String freeVersion = getString(R.string.free_version_text);
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), freeVersion));
 
     }
 }

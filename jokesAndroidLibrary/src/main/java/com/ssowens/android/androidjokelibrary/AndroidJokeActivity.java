@@ -18,7 +18,6 @@ public class AndroidJokeActivity extends AppCompatActivity {
 
         // Set up Timber
         Timber.plant(new Timber.DebugTree());
-        Timber.d("AndroidJokeActivity.onCreate");
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

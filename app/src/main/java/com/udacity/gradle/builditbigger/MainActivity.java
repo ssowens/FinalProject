@@ -1,20 +1,15 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.ssowens.android.androidjokelibrary.AndroidJokeActivity;
 
 import butterknife.ButterKnife;
 import timber.log.Timber;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up Timber
         Timber.plant(new Timber.DebugTree());
+
 
         // ADMOB App id
         MobileAds.initialize(this, "ca-app-pub-3983610797900419~4953833699");
@@ -56,17 +52,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-    // Launch Library Activity
-    public void launchLibraryActivity(View view) {
-        Intent myIntent = new Intent(this, AndroidJokeActivity.class);
-        startActivity(myIntent);
-    }
-
-    public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
-    }
-
-
 }

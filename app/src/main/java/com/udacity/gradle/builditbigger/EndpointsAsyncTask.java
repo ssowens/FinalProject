@@ -14,14 +14,17 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
+import timber.log.Timber;
+
 import static com.udacity.gradle.builditbigger.MainActivityFragment.EXTRA_JOKE;
 
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
 
     private static MyApi myApiService = null;
-    protected Context context;
+    private Context context;
     private GetJokeListener listener = null;
     private Exception exceptionError = null;
+    public static String returnedJoke = null;
 
 
     @Override
@@ -62,14 +65,19 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
     @Override
     protected void onPostExecute(String result) {
 
-        if (this.listener != null) {
-            this.listener.onComplete(result, exceptionError);
-        }
-        if (context != null) {
+        try {
+            returnedJoke = result;
             // Launch the Android Library Activity
             Intent androidLibIntent = new Intent(context, AndroidJokeActivity.class);
             androidLibIntent.putExtra(EXTRA_JOKE, result);
             context.startActivity(androidLibIntent);
+
+            if (this.listener != null) {
+                this.listener.onComplete(result, exceptionError);
+            }
+        } catch (Exception e) {
+            Timber.i(e);
+            e.printStackTrace();
         }
     }
 

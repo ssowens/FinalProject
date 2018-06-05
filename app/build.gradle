@@ -70,20 +70,25 @@ dependencies {
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.0'
 
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-
     // Dependency to use JUnit 4 rules
     testImplementation 'junit:junit:4.12'
+
     implementation project(':jokesAndroidLibrary')
     implementation project(':jokesJavaLibrary')
 
     // Testing-only dependencies
-
     androidTestImplementation 'com.android.support:support-annotations:27.1.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // UI testing with Espresso
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
 
     // Required if you want to use Mockito for unit tests
     androidTestImplementation 'org.mockito:mockito-core:2.7.22'
+
+    // Hamcrest library
+    androidTestImplementation 'org.hamcrest:hamcrest-library:1.3'
 }

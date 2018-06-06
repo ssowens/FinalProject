@@ -5,11 +5,9 @@ package com.udacity.gradle.builditbigger.AndroidTest.java;
  */
 
 import android.app.Activity;
-import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.util.Pair;
 
-import com.ssowens.android.javajokeslib.JavaJokes;
 import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
 
 import org.junit.Test;
@@ -24,10 +22,7 @@ public class AsyncTaskBasicTest {
 
     @Test
     public void testEndpointsAsyncTask() throws Exception {
-        EndpointsAsyncTask task = new EndpointsAsyncTask();
-        JavaJokes javaJokes = new JavaJokes();
-        String myJoke = javaJokes.getJoke();
-        task.execute(new Pair<Context, String>(activity, myJoke)).get();
+        new EndpointsAsyncTask().execute(InstrumentationRegistry.getTargetContext()).get();
         assertTrue("Error: Fetched joke: " + EndpointsAsyncTask.returnedJoke,
                 EndpointsAsyncTask.returnedJoke != null);
     }

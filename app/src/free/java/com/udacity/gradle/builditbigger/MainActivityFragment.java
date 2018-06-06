@@ -1,9 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,10 +48,8 @@ public class MainActivityFragment extends Fragment {
 
     @OnClick(R.id.jokebutton)
     public void displayJoke() {
-        Timber.d("displayJoke");
 
-        String freeVersion = getString(R.string.free_version_text);
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(getActivity(), freeVersion));
+        new EndpointsAsyncTask().execute(getActivity());
 
     }
 }

@@ -11,6 +11,9 @@ import com.google.android.gms.ads.MobileAds;
 import butterknife.ButterKnife;
 import timber.log.Timber;
 
+/**
+ * Created by Sheila Owens on 6/5/18.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -52,4 +55,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

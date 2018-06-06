@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class JavaJokes {
-    public String getJoke() {
+    public static String getJoke() {
         ArrayList<String> jokeList = new ArrayList<>();
         jokeList.add("How do you make an egg laugh? \n\nYou tell a Yolk!");
         jokeList.add("How do robots eat guacamole? \n\nWith computer chips.");
